@@ -45,7 +45,7 @@ def main():
     image = np.zeros((1024, 1024))
 
     start = timer()
-    fractal(-1.5, 1.5, -1.5, 1.5, image, 1000) 
+    fractal(-1.5, 1.5, -1.5, 1.5, image, 50) 
     dt = timer() - start
 
     print("Julia created in %f s, this includes JIT compilation overheads." % dt)
@@ -53,7 +53,7 @@ def main():
     image = np.zeros((1024, 1024))
 
     start = timer()
-    fractal(-1.5, 1.5, -1.5, 1.5, image, 1000) 
+    fractal(-1.5, 1.5, -1.5, 1.5, image, 50) 
     dt = timer() - start
 
     print("Julia created in %f s, without JIT compilation overheads." % dt)
