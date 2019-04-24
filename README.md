@@ -5,7 +5,8 @@ Each script creates the Julia fractal in a different way, single CPU, parallel C
 
 Files contained in this repository:
 
- - Config.py - Contains configuration parameters relevant to all three scripts.
- - CPUSequential.py - Single thread (process in pythons case thanks very much GIL).
- - CPUParallel.py - Multi threaded (again technically a process not a thread in python).
- - GPUParallel.py - GPU version using Numba for JIT compilation of python into machine code & using Numbas CUDA API.
+ - CPUSequential.py - Single process (not a thread in pythons case thanks very much GIL).
+ - CPUSequential-Numba.py - Single process but compiled with numba.
+ - CPUParallel.py - Multi process (again not technically a thread in python).
+ - CPUParallel-Numba.py - Multi process but compiled with numba.
+ - GPU.py - GPU using numba.
