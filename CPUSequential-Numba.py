@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 from timeit import default_timer as timer
 from numba import autojit
 
-const_real = -.79
-const_imag = .15
+const_real = -.835
+const_imag = -.2321
 
 @autojit
 def julia(real, imag, max_iterations):

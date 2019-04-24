@@ -7,8 +7,8 @@ import multiprocessing as mp
 from functools import partial
 from numba import autojit
 
-const_real = -.79
-const_imag = .15
+const_real = -.835
+const_imag = -.2321
 
 @autojit
 def julia(x, y, max_iterations):

@@ -4,8 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from timeit import default_timer as timer
 
-const_real = -.79
-const_imag = .15
+const_real = -.835
+const_imag = -.2321
 
 def julia(real, imag, max_iterations):
     c = complex(const_real, const_imag)

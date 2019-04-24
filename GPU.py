@@ -9,8 +9,8 @@ from numba import *
 os.environ["NUMBAPRO_NVVM"] = "/usr/local/cuda-10.0/nvvm/lib64/libnvvm.so"
 os.environ["NUMBAPRO_LIBDEVICE"] = "/usr/local/cuda-10.0/nvvm/libdevice/"
 
-const_real = -.79
-const_imag = .15
+const_real = -.835
+const_imag = -.2321
 
 @cuda.jit(device=True)
 def julia(real, imag, max_iterations):
@@ -27,12 +27,12 @@ def julia(real, imag, max_iterations):
 def julia_kernel(x_min, x_max, y_min, y_max, image, iterations):
     h,w = image.shape
 
-    startX, startY = cuda.grid(2)
-    gridX = cuda.gridDim.x * cuda.blockDim.x;
-    gridY = cuda.gridDim.y * cuda.blockDim.y;
+    x_start, y_start = cuda.grid(2)
+    x_grid = cuda.gridDim.x * cuda.blockDim.x;
+    y_grid = cuda.gridDim.y * cuda.blockDim.y;
 
-    for x in range(startX, w, gridX):
-        for y in range(startY, h, gridY):
+    for x in range(x_start, w, x_grid):
+        for y in range(y_start, h, y_grid):
             real = x_min + x * (x_max - x_min) / w
             imag = y_min + y * (y_max - y_min) / h
             image[y, x] = julia(real, imag, iterations)

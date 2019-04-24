@@ -6,8 +6,8 @@ from timeit import default_timer as timer
 import multiprocessing as mp
 from functools import partial
 
-const_real = -.79
-const_imag = .15
+const_real = -.835
+const_imag = -.2321
 
 def julia(x, y, max_iterations):
     c = complex(const_real, const_imag)
