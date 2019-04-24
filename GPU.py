@@ -44,7 +44,7 @@ def main():
 
     start = timer()
     device_image = cuda.to_device(image)
-    julia_kernel[griddim, blockdim](-1.5, 1.5, -1.5, 1.5, device_image, 1000) 
+    julia_kernel[griddim, blockdim](-1.5, 1.5, -1.5, 1.5, device_image, 50) 
     device_image.to_host()
     dt = timer() - start
 
@@ -56,7 +56,7 @@ def main():
 
     start = timer()
     device_image = cuda.to_device(image)
-    julia_kernel[griddim, blockdim](-1.5, 1.5, -1.5, 1.5, device_image, 1000) 
+    julia_kernel[griddim, blockdim](-1.5, 1.5, -1.5, 1.5, device_image, 50) 
     device_image.to_host()
     dt = timer() - start
 
