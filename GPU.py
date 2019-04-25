@@ -39,8 +39,8 @@ def julia_kernel(x_min, x_max, y_min, y_max, image, iterations):
 
 def main():
     image = np.zeros((1024, 1024), dtype = np.uint8)
-    blockdim = (32, 8)
-    griddim = (32,16)
+    blockdim = (64, 16)
+    griddim = (64, 32)
 
     start = timer()
     device_image = cuda.to_device(image)
@@ -51,8 +51,8 @@ def main():
     print("Julia created in %f s, this includes JIT compilation overheads." % dt)
 
     image = np.zeros((1024, 1024), dtype = np.uint8)
-    blockdim = (32, 8)
-    griddim = (32,16)
+    blockdim = (64, 16)
+    griddim = (64,32)
 
     start = timer()
     device_image = cuda.to_device(image)
