@@ -1,7 +1,8 @@
 # Julia Fractals
 
-This respository contains three scripts, each script imports the config object which defines ceratin parameters of the Julia fractal we want to create.
-Each script creates the Julia fractal in a different way, single CPU, parallel CPU and paralell GPU.
+This repository contains 5 scripts, each script generates a Julia fractal. We generate the fractal using a single CPU, paralell processes with multiple CPUs and then a massivley parallel processes by utilizing the GPU.
+
+The CPU scripts have two versions - one using interpreted python and another using numba JIT compiled python.
 
 Files contained in this repository:
 
