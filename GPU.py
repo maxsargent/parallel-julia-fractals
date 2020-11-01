@@ -6,9 +6,6 @@ from timeit import default_timer as timer
 from numba import cuda
 from numba import *
 
-os.environ["NUMBAPRO_NVVM"] = "/usr/local/cuda-10.0/nvvm/lib64/libnvvm.so"
-os.environ["NUMBAPRO_LIBDEVICE"] = "/usr/local/cuda-10.0/nvvm/libdevice/"
-
 const_real = -.835
 const_imag = -.2321
 
@@ -62,7 +59,7 @@ def main():
 
     print("Julia created in %f s, without JIT compilation overheads." % dt)
 
-    plt.imsave(os.path.basename(sys.argv[0][:-3]), image)
+    plt.imsave("GPU.png", image)
 
 if __name__ == "__main__":
 	main()

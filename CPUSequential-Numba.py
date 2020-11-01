@@ -3,12 +3,12 @@ import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from timeit import default_timer as timer
-from numba import autojit
+from numba import jit
 
 const_real = -.835
 const_imag = -.2321
 
-@autojit
+@jit
 def julia(real, imag, max_iterations):
     c = complex(const_real, const_imag)
     z = complex(real, imag)
@@ -19,7 +19,7 @@ def julia(real, imag, max_iterations):
 
     return max_iterations
 
-@autojit
+@jit
 def fractal(x_min, x_max, y_min, y_max, image, iterations):
     h,w = image.shape
 
@@ -47,7 +47,7 @@ def main():
 
     print("Julia created in %f s, without JIT compilation overheads." % dt)
 
-    plt.imsave(os.path.basename(sys.argv[0][:-3]), image)
+    plt.imsave("CPUSequential-Numba.png", image)
 
 if __name__ == "__main__":
     main()

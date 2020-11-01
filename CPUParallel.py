@@ -46,7 +46,7 @@ def main():
 
     print("Julia created in %f s" % dt)
 
-    plt.imsave(os.path.basename(sys.argv[0][:-3]), image)
+    plt.imsave("CPUParallel.png", image)
 
 if __name__ == "__main__":
 	main()

@@ -35,8 +35,7 @@ def main():
     dt = timer() - start
 
     print("Julia created in %f s" % dt)
-
-    plt.imsave(os.path.basename(sys.argv[0][:-3]), image)
+    plt.imsave("CPUSequential.png", image)
 
 if __name__ == "__main__":
     main()

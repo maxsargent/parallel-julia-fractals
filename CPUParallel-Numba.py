@@ -5,12 +5,12 @@ import matplotlib.pyplot as plt
 from timeit import default_timer as timer
 import multiprocessing as mp
 from functools import partial
-from numba import autojit
+from numba import jit
 
 const_real = -.835
 const_imag = -.2321
 
-@autojit
+@jit
 def julia(x, y, max_iterations):
     c = complex(const_real, const_imag)
     z = complex(x, y)
@@ -21,7 +21,7 @@ def julia(x, y, max_iterations):
 
     return max_iterations
 
-@autojit
+@jit
 def julia_row(y, h, w, x_min, x_max, y_min, y_max, iterations):
     row = np.zeros(w)
     for x in range(w):
@@ -30,7 +30,7 @@ def julia_row(y, h, w, x_min, x_max, y_min, y_max, iterations):
         row[x] = julia(real, imag, iterations)
     return y, row
 
-@autojit
+@jit
 def fractal(x_min, x_max, y_min, y_max, image, iterations):
     h, w = image.shape
 
@@ -58,7 +58,7 @@ def main():
 
     print("Julia created in %f s, without JIT compilation overheads." % dt)
 
-    plt.imsave(os.path.basename(sys.argv[0][:-3]), image)
+    plt.imsave("CPUParallel-Numba.png", image)
 
 if __name__ == "__main__":
     main()
